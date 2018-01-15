@@ -1,0 +1,62 @@
+<?php
+    $sql = "SELECT
+                sv_id,
+                CAST(sv_site AS text) as sv_site,
+                CAST(sv_work AS text) as sv_work,
+                CAST(sv_detail AS text) as sv_detail,
+                CAST(sv_charter AS text) as sv_charter,
+                CAST(sv_check AS text) as sv_check,
+                CAST(sv_details AS text) as sv_details,
+                CAST(sv_category AS text) as sv_category,
+                CAST(sv_nature AS text) as sv_nature,
+                CAST(sv_cause AS text) as sv_cause,
+                CAST(sv_edit AS text) as sv_edit,
+                CAST(sv_result AS text) as sv_result,
+                CAST(img1 AS text) as img1,
+                CAST(img2 AS text) as img2,
+                CAST(img3 AS text) as img3,
+                CAST(img4 AS text) as img4,
+                CAST(img5 AS text) as img5,
+                CAST(img6 AS text) as img6,
+                CAST(img7 AS text) as img7,
+                CAST(img8 AS text) as img8,
+                CAST(img9 AS text) as img9,
+                CAST(img10 AS text) as img10,
+                CAST(img11 AS text) as img11,
+                CAST(img12 AS text) as img12,
+                CAST(img13 AS text) as img13,
+                CAST(img14 AS text) as img14,
+                CAST(img15 AS text) as img15,
+                CAST(img16 AS text) as img16,
+                CAST(img17 AS text) as img17,
+                CAST(img18 AS text) as img18,
+                CAST(img19 AS text) as img19,
+                CAST(img20 AS text) as img20,
+                CAST(detail1 AS text) as detail1,
+                CAST(detail2 AS text) as detail2,
+                CAST(detail3 AS text) as detail3,
+                CAST(detail4 AS text) as detail4,
+                CAST(detail5 AS text) as detail5,
+                CAST(detail6 AS text) as detail6,
+                CAST(detail7 AS text) as detail7,
+                CAST(detail8 AS text) as detail8,
+                CAST(detail9 AS text) as detail9,
+                CAST(detail10 AS text) as detail10,
+                CAST(detail11 AS text) as detail11,
+                CAST(detail12 AS text) as detail12,
+                CAST(detail13 AS text) as detail13,
+                CAST(detail14 AS text) as detail14,
+                CAST(detail15 AS text) as detail15,
+                CAST(detail16 AS text) as detail16,
+                CAST(detail17 AS text) as detail17,
+                CAST(detail18 AS text) as detail18,
+                CAST(detail19 AS text) as detail19,
+                CAST(detail20 AS text) as detail20
+            FROM
+                [QC].[dbo].[SiteVisit]
+            WHERE
+                sv_id = '". $_GET['Sv_id'] ."' ";
+
+    $query_visit = mssql_query($sql);
+    $row_visit = mssql_fetch_assoc($query_visit);
+?>
