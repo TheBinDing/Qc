@@ -68,7 +68,6 @@
             $mail->AddCC("thanakrit.bh@thaipolycons.co.thh");
             $mail->AddCC("Thananat.ia@thaipolycons.co.th");
             $mail->AddCC("rungrueng@thaipolycons.co.th");
-            $mail->AddCC("apichat.si@thaipolycons.co.th");
          }else{
             $mail->AddAddress($arr['send']);
          }

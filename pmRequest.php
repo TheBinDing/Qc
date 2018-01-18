@@ -5,12 +5,6 @@
     require('func/pmRequestSearch.php');
     checklogin($_SESSION['user_name']);
     $HeadCheck = 'questPM';
-    // $_SESSION['Link'] = 'News.php';
-    // if($_SESSION['user_name'] == "")
-    // {
-    //     echo "Please Login!";
-    //     exit("<script>alert('Please Login');window.location='login.php';</script>");
-    // }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -123,7 +117,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-success SubmitData">เพิ่ม</button>
+                                            <button class="btn btn-success SubmitData" onClick="send();">เพิ่ม</button>
                                         </div>
                                     </form>
                                 </div>
@@ -178,7 +172,7 @@
                                 <td style="text-align: center;"><?php echo $status; ?></td>
                                 <td style="text-align: center;">
                                     <div <?php if($row['Status'] != 0) { $none = '    pointer-events: none;cursor: not-allowed;box-shadow: none;opacity: 0.65;'; } ?> >
-                                        <a href="func/pmRequestSave.php?Pm_id=<?php echo $row['ID']; ?>&status=Send" class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button" onClick="send(<?php echo $row['ID']; ?>, '<?php echo iconv('TIS-620', 'UTF-8', $row['Detail']); ?>', '<?php echo $Time; ?>', '<?php echo iconv('TIS-620', 'UTF-8', $row['Times']); ?>');">ส่งข้อมูล</a>
+                                        <a href="func/pmRequestSave.php?Pm_id=<?php echo $row['ID']; ?>&status=Send" class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button">ส่งข้อมูล</a>
                                         <!-- <a href="#" class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button" onClick="send(<?php echo $row['ID']; ?>, '<?php echo iconv('TIS-620', 'UTF-8', $row['Detail']); ?>', '<?php echo $Time; ?>', '<?php echo iconv('TIS-620', 'UTF-8', $row['Times']); ?>');">ส่งข้อมูล</a> -->
                                     </div>
                                 </td>
@@ -325,10 +319,10 @@
         travflex.compulsory.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
         travflex.compulsory.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
         travflex.compulsory.Criteria['send'] = '1';
-        travflex.compulsory.Criteria['site'] = value;
-        travflex.compulsory.Criteria['details'] = details;
-        travflex.compulsory.Criteria['check'] = check;
-        travflex.compulsory.Criteria['times'] = times;
+        travflex.compulsory.Criteria['site'] = $('#Site').val();
+        travflex.compulsory.Criteria['details'] = $('#Detail').val();
+        travflex.compulsory.Criteria['check'] = $('#Time').val();
+        travflex.compulsory.Criteria['times'] = $('#Times').val();
         var ajax_config = {
             url: "func/AjaxSearch.php",
             dataType: "json",
@@ -338,9 +332,9 @@
 
         var get_ajax = $.ajax(ajax_config);
         get_ajax.done(function(response) {
-            console.log(response);
+            popup('close');
             if(response == 1) {
-                swal("เรียบร้อยจร่ะ!");
+                swal("Email delivery!");
             } else {
                 swal("Error!");
             }
