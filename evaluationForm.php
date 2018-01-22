@@ -58,9 +58,11 @@
 
                                     if($row['Status'] == '2') {
                                         $status = 'รอการประเมิน';
+                                        $dis = 'disabled';
                                     }
-                                    if($row['Status'] == '2') {
+                                    if($row['Status'] == '3') {
                                         $status = 'ทำงานประเมินแล้ว';
+                                        $dis = '';
                                     }
 
                                     if($row['Group_ID'] == 1) {
@@ -119,7 +121,7 @@
                                 <td style="text-align: center;"><?php echo iconv('TIS-620', 'UTF-8', $row['Detail']); ?></td>
                                 <td style="text-align: center;"><?php echo $status; ?></td>
                                 <td style="text-align: center;">
-                                    <a class="btn-white btn btn-xs" id="test" data-code="<?php echo $row['ID']; ?>" data-group="<?php echo $gID; ?>" role="button">ใบประเมิน</a>
+                                    <a class="btn-white btn btn-xs" id="test" data-code="<?php echo $row['ID']; ?>" data-group="<?php echo $gID; ?>" role="button" <?=$dis?>>ใบประเมิน</a>
                                 </td>
                                 <td style="text-align: center;">
                                     <!-- <a href="func/qcRequestSave.php?Pm_id=<?php echo $row['ID']; ?>" class="btn-white btn btn-xs" role="button">ทำการประเมิน</a> -->
