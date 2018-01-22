@@ -1,9 +1,4 @@
 <?php
-    function load_request_save_list($arr) {
-        $sql = 'test';
-        return $sql;
-    }
-
     function sendMail($arr) {
         $searchSite = "SELECT
                             site_id as site_id,
@@ -20,11 +15,11 @@
         $Siten = js_thai_encode($row_site['site_name']);
 
         $subject = 'เพิ่มข้อมูลเพื่อเข้าตรวจโครงการ '.$Siten;
-        $detail = 'เข้าตรวจสอบโครงการ : '.$Siten.'<br>';
+        $detail = 'เพิ่มการเข้าตรวจสอบโครงการ : '.$Siten.'<br>';
 		$detail .= 'รายละเอียดงาน : '.$arr['details'].'<br>';
 		$detail .= 'วันที่ตรวจสอบ : '.$arr['check'].'<br>';
 		$detail .= 'เวลาที่ตรวจสอบ : '.$arr['times'].'<br>';
-        $detail .= 'http://intranet.thaipolycons.co.th/';
+        $detail .= 'http://intranet.thaipolycons.co.th:2222/qc/login.php';
 
         $mail = new PHPMailer();
         $mail->Body = $detail;
@@ -46,7 +41,7 @@
         $mail->SetFrom($arr['from'], $arr['name']);   
         $mail->IsHTML(true);
         //send mail
-         if($arr['send'] == 1){
+        if($arr['send'] == 1){
             if($Sites == 8) {
                 $mail->AddAddress("tanapat.ch@thaipolycons.co.th");
             }
@@ -68,11 +63,105 @@
             $mail->AddCC("thanakrit.bh@thaipolycons.co.thh");
             $mail->AddCC("Thananat.ia@thaipolycons.co.th");
             $mail->AddCC("rungrueng@thaipolycons.co.th");
-         }else{
+        } else {
             $mail->AddAddress($arr['send']);
-         }
+        }
+        $mail->Subject = $subject;  
         
-        //$mail->AddReplyTo("email@yourdomain.com", "yourname");
+        if(!$mail->send()){
+            $msg = $mail->ErrorInfo;
+            // $msg = 0;
+        }else{
+            $msg = 1;
+        }
+        return $msg;
+        // return $arr['detail'].'-'.$arr['subject'].'-'.$arr['from'].'-'.$arr['send'];
+    }
+
+    function update_send($arr) {
+        $Day = new datetime();
+        $Day = $Day->format('d-m-Y');
+
+        $update_pm = " UPDATE [QC].[dbo].[Request] set pm_status = '1', update_day = '". $Day ."' WHERE pm_id = '". $arr['id'] ."' ";
+        mssql_query($update_pm);
+        // return $update_pm;
+    }
+
+    function sendMails($arr) {
+        $sqlSelect = "  SELECT
+                            s.site_id as site_id,
+                            CAST(s.site_name as text) as site_name,
+                            CAST(t.t_time as text) as t_time,
+                            CAST(r.pm_detail as text) as pm_detail,
+                            r.pm_time as pm_time
+                        FROM
+                            [QC].[dbo].[Request] r inner join
+                            [QC].[dbo].[Site] s on r.site_id = s.site_id inner join
+                            [QC].[dbo].[Time] t on r.t_id = t.t_id
+                        WHERE
+                            pm_id = '". $arr['id'] ."' ";
+
+        $query = mssql_query($sqlSelect);
+        $row = mssql_fetch_assoc($query);
+
+        $Sites = $row['site_id'];
+        $Siten = js_thai_encode($row['site_name']);
+
+        $row['pm_time'] = new datetime($row['pm_time']);
+        $row['pm_time'] = $row['pm_time']->format('d-m-Y');
+
+        $subject = 'เพิ่มข้อมูลเพื่อเข้าตรวจโครงการ '.$Siten;
+        $detail = 'เพิ่มการเข้าตรวจสอบโครงการ : '.$Siten.'<br>';
+        $detail .= 'รายละเอียดงาน : '.$row['pm_detail'].'<br>';
+        $detail .= 'วันที่ตรวจสอบ : '.$row['pm_time'].'<br>';
+        $detail .= 'เวลาที่ตรวจสอบ : '.$row['t_time'].'<br>';
+        $detail .= 'http://intranet.thaipolycons.co.th:2222/qc/login.php';
+
+        $mail = new PHPMailer();
+        $mail->Body = $detail;
+        $mail->CharSet = "utf-8";
+        $mail->IsSMTP();// Set mailer to use SMTP
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        // $mail->Host = "192.168.1.78"; // SMTP server
+        // $mail->Host = "mail.csloxinfo.com"; // SMTP server
+        $mail->Host = "58.137.61.220"; // SMTP server
+        // $mail->Host = "smtp.gmail.com"; // Gmail
+        // $mail->Host = "smtp.live.com"; // hotmail.com
+        $mail->Port = 25; // พอร์ท 25, 465 or 587
+        // $mypath = 'img/excel.png';
+        // $mypath_name = 'รูปตัวอย่าง';
+        $mail->Username = $arr['from']; // SMTP username
+        $mail->Password = "tpolypassword"; // SMTP password
+        //from
+        $mail->SetFrom($arr['from'], $arr['name']);   
+        $mail->IsHTML(true);
+        //send mail
+        if($arr['send'] == 1){
+            if($Sites == 8) {
+                $mail->AddAddress("tanapat.ch@thaipolycons.co.th");
+            }
+            if( ($Sites == 1) || ($Sites == 6) || ($Sites == 7) || ($Sites == 8) ) {
+                $mail->AddAddress("tanapat.ch@thaipolycons.co.th");
+            }
+            if($Sites == 9) {
+                $mail->AddAddress("arkhom.kh@thaipolycons.co.th");
+            }
+            if( ($Sites == 2) || ($Sites == 4) || ($Sites == 9) ) {
+                $mail->AddAddress("panlop.sr@thaipolycons.co.th");
+            }
+            if($Sites == 5) {
+                $mail->AddAddress("arjin.po@thaipolycons.co.th");
+                $mail->AddAddress("pantisa.pr@thaipolycons.co.th");
+            }
+            $mail->addAttachment($mypath, $mypath_name);
+            $mail->AddCC("phattharachai.sr@thaipolycons.co.th");
+            $mail->AddCC("thanakrit.bh@thaipolycons.co.thh");
+            $mail->AddCC("Thananat.ia@thaipolycons.co.th");
+            $mail->AddCC("rungrueng@thaipolycons.co.th");
+        } else {
+            $mail->AddAddress($arr['send']);
+        }
         $mail->Subject = $subject;  
         
         if(!$mail->send()){

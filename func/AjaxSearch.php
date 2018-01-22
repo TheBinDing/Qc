@@ -12,11 +12,14 @@ $arr = $_POST;
 
 switch ($mode)
 {
-    case 'load_request_save_list' :
-        $response = load_request_save_list($arr);
-    break;
     case 'sendMail' :
         $response = sendMail($arr);
+    break;
+    case 'update_send' :
+        $response = update_send($arr);
+    break;
+    case 'sendMails' :
+        $response = sendMails($arr);
     break;
 }
 

@@ -172,8 +172,7 @@
                                 <td style="text-align: center;"><?php echo $status; ?></td>
                                 <td style="text-align: center;">
                                     <div <?php if($row['Status'] != 0) { $none = '    pointer-events: none;cursor: not-allowed;box-shadow: none;opacity: 0.65;'; } ?> >
-                                        <a href="func/pmRequestSave.php?Pm_id=<?php echo $row['ID']; ?>&status=Send" class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button">ส่งข้อมูล</a>
-                                        <!-- <a href="#" class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button" onClick="send(<?php echo $row['ID']; ?>, '<?php echo iconv('TIS-620', 'UTF-8', $row['Detail']); ?>', '<?php echo $Time; ?>', '<?php echo iconv('TIS-620', 'UTF-8', $row['Times']); ?>');">ส่งข้อมูล</a> -->
+                                        <a class="btn-white btn btn-xs SendData" style="<?=$none?>" role="button" onClick="upSend(<?php echo $row['ID']; ?>);">ส่งข้อมูล</a>
                                     </div>
                                 </td>
                             </tr>
@@ -323,6 +322,45 @@
         travflex.compulsory.Criteria['details'] = $('#Detail').val();
         travflex.compulsory.Criteria['check'] = $('#Time').val();
         travflex.compulsory.Criteria['times'] = $('#Times').val();
+        var ajax_config = {
+            url: "func/AjaxSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: travflex.compulsory.Criteria,
+        };
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            popup('close');
+            if(response == 1) {
+                swal("Email delivery!");
+            } else {
+                swal("Error!");
+            }
+        });
+    }
+
+    function upSend(id) {
+        travflex.compulsory.Criteria['mode'] = 'update_send';
+        travflex.compulsory.Criteria['id'] = id;
+        var ajax_config = {
+            url: "func/AjaxSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: travflex.compulsory.Criteria,
+        };
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            sends();
+        });
+    }
+
+    function sends() {
+        travflex.compulsory.Criteria['mode'] = 'sendMails';
+        travflex.compulsory.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
+        travflex.compulsory.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
+        travflex.compulsory.Criteria['send'] = '1';
         var ajax_config = {
             url: "func/AjaxSearch.php",
             dataType: "json",
