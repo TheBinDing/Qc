@@ -303,30 +303,30 @@
 </script>
 <script type="text/javascript">
     jQuery(function( $ ) {
-        travflex.compulsory.Criteria = {};
+        tpoly.qc.Criteria = {};
 
         var elem = document.querySelector('.js-switch');
         var switchery = new Switchery(elem, { color: '#1AB394' });
     });
 
-    var travflex = {
-        compulsory: new Object()
+    var tpoly = {
+        qc: new Object()
     };
 
     function send(value, details, check, times) {
-        travflex.compulsory.Criteria['mode'] = 'sendMail';
-        travflex.compulsory.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
-        travflex.compulsory.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
-        travflex.compulsory.Criteria['send'] = '1';
-        travflex.compulsory.Criteria['site'] = $('#Site').val();
-        travflex.compulsory.Criteria['details'] = $('#Detail').val();
-        travflex.compulsory.Criteria['check'] = $('#Time').val();
-        travflex.compulsory.Criteria['times'] = $('#Times').val();
+        tpoly.qc.Criteria['mode'] = 'sendMail';
+        tpoly.qc.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
+        tpoly.qc.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
+        tpoly.qc.Criteria['send'] = '1';
+        tpoly.qc.Criteria['site'] = $('#Site').val();
+        tpoly.qc.Criteria['details'] = $('#Detail').val();
+        tpoly.qc.Criteria['check'] = $('#Time').val();
+        tpoly.qc.Criteria['times'] = $('#Times').val();
         var ajax_config = {
             url: "func/AjaxSearch.php",
             dataType: "json",
             type: "POST",
-            data: travflex.compulsory.Criteria,
+            data: tpoly.qc.Criteria,
         };
 
         var get_ajax = $.ajax(ajax_config);
@@ -341,13 +341,13 @@
     }
 
     function upSend(id) {
-        travflex.compulsory.Criteria['mode'] = 'update_send';
-        travflex.compulsory.Criteria['id'] = id;
+        tpoly.qc.Criteria['mode'] = 'update_send';
+        tpoly.qc.Criteria['id'] = id;
         var ajax_config = {
             url: "func/AjaxSearch.php",
             dataType: "json",
             type: "POST",
-            data: travflex.compulsory.Criteria,
+            data: tpoly.qc.Criteria,
         };
 
         var get_ajax = $.ajax(ajax_config);
@@ -357,15 +357,15 @@
     }
 
     function sends() {
-        travflex.compulsory.Criteria['mode'] = 'sendMails';
-        travflex.compulsory.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
-        travflex.compulsory.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
-        travflex.compulsory.Criteria['send'] = '1';
+        tpoly.qc.Criteria['mode'] = 'sendMails';
+        tpoly.qc.Criteria['from'] = '<?php echo $_SESSION['SuperMail']; ?>';
+        tpoly.qc.Criteria['name'] = '<?php echo $_SESSION['user_name']; ?>';
+        tpoly.qc.Criteria['send'] = '1';
         var ajax_config = {
             url: "func/AjaxSearch.php",
             dataType: "json",
             type: "POST",
-            data: travflex.compulsory.Criteria,
+            data: tpoly.qc.Criteria,
         };
 
         var get_ajax = $.ajax(ajax_config);

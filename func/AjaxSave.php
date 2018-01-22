@@ -174,6 +174,151 @@
         // return $arr['detail'].'-'.$arr['subject'].'-'.$arr['from'].'-'.$arr['send'];
     }
 
+    function load_Receive_ae($arr) {
+        $sql = "SELECT
+                    r.pm_id as id,
+                    CAST(r.pm_detail as Text) as detail,
+                    CAST(t.t_time as text) as t_time,
+                    t.t_time as t_time,
+                    r.pm_time as pm_time,
+                    CAST(r.pm_note as Text) as note,
+                    CAST(g.g_name as Text) as group_Name,
+                    CAST(s.site_name as Text) as site_Name,
+                    r.pm_status as status
+                FROM
+                      [QC].[dbo].[Request] r inner join
+                      [QC].[dbo].[Group] g on r.g_id = g.g_id inner join
+                      [QC].[dbo].[Site] s on r.site_id = s.site_id inner join
+                      [QC].[dbo].[Time] t on r.t_id = t.t_id
+                WHERE
+                    r.pm_id = '". $arr['code'] ."'
+                    AND  r.pm_status = 1 ";
+
+        $query = mssql_query($sql);
+        $response = array();
+        while ($row = mssql_fetch_array($query))
+        {
+            $response[] = $row;
+        }
+
+        return js_thai_encode($response);
+    }
+
+    function load_code() {
+        $sql = "SELECT
+                    u_id AS Code,
+                    CAST(u_fullname as Text) AS LongName
+                FROM
+                    [QC].[dbo].[Users]
+                WHERE
+                    u_permission = '3' ";
+
+        $query = mssql_query($sql);
+        $response = array();
+        while ($row = mssql_fetch_array($query))
+        {
+            $response[] = $row;
+        }
+
+        return js_thai_encode($response);
+    }
+
+    function update_receive($arr) {
+        if($arr['num'] == 1) {
+            $update_pm = " UPDATE [QC].[dbo].[Request] set pm_status = '2' WHERE pm_id = '". $arr['id'] ."' ";
+            mssql_query($update_pm);
+            return 1;
+        } else {
+            $times = new datetime();
+            $times = $times->format('d-m-Y');
+
+            $CT = "SELECT pm_time FROM [QC].[dbo].[Request] WHERE pm_id = '". $arr['id'] ."' ";
+            $query_ct = mssql_query($CT);
+            $row_ct = mssql_fetch_assoc($query_ct);
+
+            $ct_time = new datetime($row_ct['pm_time']);
+            $ct_time = $ct_time->format('d-m-Y');
+
+            $l = explode('-', $ct_time);
+            $ct_time_l = ($l[0]-3).'-'.$l[1].'-'.$l[2];
+
+            if($times >= $ct_time_l) {
+                return 0;
+            } else {
+                $update_pm = " UPDATE [QC].[dbo].[Request] set pm_status = '4' WHERE pm_id = '". $arr['id'] ."' ";
+                mssql_query($update_pm);
+                return 1;
+            }
+        }
+    }
+
+    function sendMail_conFirm($arr) {
+        $sql = "SELECT
+                    CAST(u_mail as Text) as mails,
+                    CAST(u_fullname as Text) as fullname
+                FROM
+                    [QC].[dbo].[Users]
+                WHERE
+                    u_id = '". $arr['code'] ."' ";
+
+        $query = mssql_query($sql);
+        $row = mssql_fetch_assoc($query);
+
+        if($arr['num'] == 1) {
+            $subject = 'ยืนยันการเข้าตรวจโครงการ '.$arr['site'];
+            $detail = 'ถึงคุณ : '.$row['fullname'].'<br><br>';
+            $detail .= 'ยืนยันการเข้าตรวจสอบโครงการ : '.$arr['site'].'<br>';
+            $detail .= 'รายละเอียดงาน : '.$arr['details'].'<br>';
+            $detail .= 'วันที่ตรวจสอบ : '.$arr['check'].'<br>';
+            $detail .= 'เวลาที่ตรวจสอบ : '.$arr['times'].'<br>';
+            $detail .= 'http://intranet.thaipolycons.co.th:2222/qc/login.php';
+        } else {
+            $subject = 'ยกเลิกการเข้าตรวจโครงการ '.$arr['site'];
+            $detail = 'ถึงคุณ : '.$row['fullname'].'<br><br>';
+            $detail .= 'ยกเลิกการเข้าตรวจสอบโครงการ : '.$arr['site'].'<br>';
+            $detail .= 'รายละเอียดงาน : '.$arr['details'].'<br>';
+            $detail .= 'วันที่ตรวจสอบ : '.$arr['check'].'<br>';
+            $detail .= 'เวลาที่ตรวจสอบ : '.$arr['times'];
+        }
+
+        $sendM = $row['mails'];
+
+        $mail = new PHPMailer();
+        $mail->Body = $detail;
+        $mail->CharSet = "utf-8";
+        $mail->IsSMTP();// Set mailer to use SMTP
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        // $mail->Host = "192.168.1.78"; // SMTP server
+        // $mail->Host = "mail.csloxinfo.com"; // SMTP server
+        $mail->Host = "58.137.61.220"; // SMTP server
+        // $mail->Host = "smtp.gmail.com"; // Gmail
+        // $mail->Host = "smtp.live.com"; // hotmail.com
+        $mail->Port = 25; // พอร์ท 25, 465 or 587
+        // $mypath = 'img/excel.png';
+        // $mypath_name = 'รูปตัวอย่าง';
+        $mail->Username = $arr['from']; // SMTP username
+        $mail->Password = "tpolypassword"; // SMTP password
+        //from
+        $mail->SetFrom($arr['from'], $arr['name']);   
+        $mail->IsHTML(true);
+        //send mail
+        if($arr['send'] == 1){
+            $mail->AddAddress($sendM);
+        } else {
+            $mail->AddAddress($arr['send']);
+        }
+        $mail->Subject = $subject;  
+        
+        if(!$mail->send()){
+            $msg = $mail->ErrorInfo;
+            // $msg = 0;
+        }else{
+            $msg = 1;
+        }
+        return $msg;
+    }
+
     function js_thai_encode($data) {   // fix all thai elements
         if (is_array($data))
         {

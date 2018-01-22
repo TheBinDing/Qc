@@ -21,6 +21,18 @@ switch ($mode)
     case 'sendMails' :
         $response = sendMails($arr);
     break;
+    case 'load_Receive_ae' :
+        $response = load_Receive_ae($arr);
+    break;
+    case 'sendMail_conFirm' :
+        $response = sendMail_conFirm($arr);
+    break;
+    case 'load_code' :
+        $response = load_code($arr);
+    break;
+    case 'update_receive' :
+        $response = update_receive($arr);
+    break;
 }
 
 echo json_encode($response);
