@@ -27,14 +27,8 @@
         $mail->IsSMTP();// Set mailer to use SMTP
         $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true;
-        // $mail->Host = "192.168.1.78"; // SMTP server
-        // $mail->Host = "mail.csloxinfo.com"; // SMTP server
         $mail->Host = "58.137.61.220"; // SMTP server
-        // $mail->Host = "smtp.gmail.com"; // Gmail
-        // $mail->Host = "smtp.live.com"; // hotmail.com
         $mail->Port = 25; // พอร์ท 25, 465 or 587
-        // $mypath = 'img/excel.png';
-        // $mypath_name = 'รูปตัวอย่าง';
         $mail->Username = $arr['from']; // SMTP username
         $mail->Password = "tpolypassword"; // SMTP password
         //from
@@ -123,14 +117,8 @@
         $mail->IsSMTP();// Set mailer to use SMTP
         $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true;
-        // $mail->Host = "192.168.1.78"; // SMTP server
-        // $mail->Host = "mail.csloxinfo.com"; // SMTP server
         $mail->Host = "58.137.61.220"; // SMTP server
-        // $mail->Host = "smtp.gmail.com"; // Gmail
-        // $mail->Host = "smtp.live.com"; // hotmail.com
         $mail->Port = 25; // พอร์ท 25, 465 or 587
-        // $mypath = 'img/excel.png';
-        // $mypath_name = 'รูปตัวอย่าง';
         $mail->Username = $arr['from']; // SMTP username
         $mail->Password = "tpolypassword"; // SMTP password
         //from
