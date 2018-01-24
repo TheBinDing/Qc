@@ -39,101 +39,91 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 </div>
             </li>
 
-            <!-- ####################################################### -->
-            <?php if($HeadCheck == 'index') {?>
-                <li class="active">
-            <?php } else { ?>
-                <li>
-            <?php } ?>
-                <a href="index.php"><i class="fa fa-pie-chart"></i> <span class="nav-label">หน้าแรก</span></a>
-            </li>
+            <?php if($_SESSION['Permission'] == '2') { ?>
+                <?php if($HeadCheck == 'questQC' || $HeadCheck == 'questevaluation') { ?>
+                    <li class="active">
+                <?php } else { ?>
+                    <li>
+                <?php } ?>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Request</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <?php if($HeadCheck == 'questQC') { ?>
+                        <li class="active"><a href='qcRequest.php'>QC Receive</a></li>
+                    <?php } else {?>
+                        <li><a href='qcRequest.php'>QC Receive</a></li>
+                    <?php } ?>
+                    <?php if($HeadCheck == 'questevaluation') { ?>
+                        <li class="active"><a href='evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
+                    <?php } else {?>
+                        <li><a href='evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
+                    <?php } ?>
+                </ul>
 
-            <?php if($HeadCheck == 'questPM' || $HeadCheck == 'questQC' || $HeadCheck == 'questevaluation') { ?>
-                <li class="active">
-            <?php } else { ?>
-                <li>
+                <?php if($HeadCheck == 'SiteVS' || $HeadCheck == 'NCR' || $HeadCheck == 'NCRs' || $HeadCheck == 'assessment') { ?>
+                    <li class="active">
+                <?php } else { ?>
+                    <li>
+                <?php } ?>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Activity</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <?php if($HeadCheck == 'SiteVS') { ?>
+                        <li class="active"><a href='siteVS.php'>Site Visit</a></li>
+                    <?php } else {?>
+                        <li><a href='siteVS.php'>Site Visit</a></li>
+                    <?php } ?>
+                    <?php if($HeadCheck == 'NCR') { ?>
+                        <li class="active"><a href='ncr.php'>NCR</a></li>
+                    <?php } else {?>
+                        <li><a href='ncr.php'>NCR</a></li>
+                    <?php } ?>
+                    <?php if($HeadCheck == 'NCRs') { ?>
+                        <li class="active"><a href='ncrComferm.php'>NCR Comferm</a></li>
+                    <?php } else {?>
+                        <li><a href='ncrComferm.php'>NCR Comferm</a></li>
+                    <?php } ?>
+                    <?php if($HeadCheck == 'assessment') { ?>
+                        <li class="active"><a href='assessment.php'>ประเมินงบประมาณNCR</a></li>
+                    <?php } else {?>
+                        <li><a href='assessment.php'>ประเมินงบประมาณNCR</a></li>
+                    <?php } ?>
+                </ul>
             <?php } ?>
-            <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Request</span> <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level collapse">
+
+            <?php if($_SESSION['Permission'] == '3') { ?>
+                <!-- ####################################################### -->
                 <?php if($HeadCheck == 'questPM') { ?>
-                    <li class="active"><a href='../pmRequest.php'>PM Request</a></li>
-                <?php } else {?>
-                    <li><a href='../pmRequest.php'>PM Request</a></li>
+                    <li class="active">
+                <?php } else { ?>
+                    <li>
                 <?php } ?>
-                <?php if($HeadCheck == 'questQC') { ?>
-                    <li class="active"><a href=../'qcRequest.php'>QC Receive</a></li>
-                <?php } else {?>
-                    <li><a href='../qcRequest.php'>QC Receive</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'questevaluation') { ?>
-                    <li class="active"><a href='../evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
-                <?php } else {?>
-                    <li><a href='../evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
-                <?php } ?>
-            </ul>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Request</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <?php if($HeadCheck == 'questPM') { ?>
+                        <li class="active"><a href='pmRequest.php'>PM Request</a></li>
+                    <?php } else {?>
+                        <li><a href='pmRequest.php'>PM Request</a></li>
+                    <?php } ?>
+                </ul>
 
-            <?php if($HeadCheck == 'SiteVS' || $HeadCheck == 'NCR' || $HeadCheck == 'assessment') { ?>
-                <li class="active">
-            <?php } else { ?>
-                <li>
+                <?php if($HeadCheck == 'SiteVS' || $HeadCheck == 'NCR') { ?>
+                    <li class="active">
+                <?php } else { ?>
+                    <li>
+                <?php } ?>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Activity</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <?php if($HeadCheck == 'SiteVS') { ?>
+                        <li class="active"><a href='siteVS.php'>Site Visit</a></li>
+                    <?php } else {?>
+                        <li><a href='siteVS.php'>Site Visit</a></li>
+                    <?php } ?>
+                    <?php if($HeadCheck == 'NCR') { ?>
+                        <li class="active"><a href='ncr.php'>NCR</a></li>
+                    <?php } else {?>
+                        <li><a href='ncr.php'>NCR</a></li>
+                    <?php } ?>
+                </ul>
             <?php } ?>
-            <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Activity</span> <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level collapse">
-                <?php if($HeadCheck == 'SiteVS') { ?>
-                    <li class="active"><a href='../siteVS.php'>Site Visit</a></li>
-                <?php } else {?>
-                    <li><a href='../siteVS.php'>Site Visit</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'NCR') { ?>
-                    <li class="active"><a href='../ncr.php'>NCR</a></li>
-                <?php } else {?>
-                    <li><a href='../ncr.php'>NCR</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'assessment') { ?>
-                    <li class="active"><a href='../assessment.php'>ประเมินงบประมาณNCR</a></li>
-                <?php } else {?>
-                    <li><a href='../assessment.php'>ประเมินงบประมาณNCR</a></li>
-                <?php } ?>
-            </ul>
-
-            <?php if($HeadCheck == 'R1' || $HeadCheck == 'R2' || $HeadCheck == 'R3' || $HeadCheck == 'R4' || $HeadCheck == 'R5' || $HeadCheck == 'R6') { ?>
-                <li class="active">
-            <?php } else { ?>
-                <li>
-            <?php } ?>
-            <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Report</span> <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level collapse">
-                <?php if($HeadCheck == 'R1') { ?>
-                    <li class="active"><a href='#'>ใบสรุปผลการตรวจสอบคุณภาพ</a></li>
-                <?php } else {?>
-                    <li><a href='#'>ใบสรุปผลการตรวจสอบคุณภาพ</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'R2') { ?>
-                    <li class="active"><a href='#'>ใบสรุปจำนวนครั้งการตรวจสอบคุณภาพ</a></li>
-                <?php } else {?>
-                    <li><a href='#'>ใบสรุปจำนวนครั้งการตรวจสอบคุณภาพ</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'R3') { ?>
-                    <li class="active"><a href='#'>สรุปข้อมูลผลการตรวจสอบคุณภาพ</a></li>
-                <?php } else {?>
-                    <li><a href='#'>สรุปข้อมูลผลการตรวจสอบคุณภาพ</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'R4') { ?>
-                    <li class="active"><a href='#'>ใบสรุปเข้า Site Visit</a></li>
-                <?php } else {?>
-                    <li><a href='#'>ใบสรุปเข้า Site Visit</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'R5') { ?>
-                    <li class="active"><a href='#'>ใบสรุปเข้าตรวจงานส่วนกลาง</a></li>
-                <?php } else {?>
-                    <li><a href='#'>ใบสรุปเข้าตรวจงานส่วนกลาง</a></li>
-                <?php } ?>
-                <?php if($HeadCheck == 'R6') { ?>
-                    <li class="active"><a href='#'>บสรุป NCR</a></li>
-                <?php } else {?>
-                    <li><a href='#'>บสรุป NCR</a></li>
-                <?php } ?>
-            </ul>
         </ul>
     </div>
 </nav>

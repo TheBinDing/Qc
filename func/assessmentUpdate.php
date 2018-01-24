@@ -141,21 +141,15 @@
         $mail->IsSMTP();// Set mailer to use SMTP
         $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true;
-        $mail->Host = "mail.csloxinfo.com"; // SMTP server
-        // $mail->Host = "smtp.gmail.com"; // Gmail
-        // $mail->Host = "smtp.live.com"; // hotmail.com
-        // $mail->Port = 25; // พอร์ท 25, 465 or 587
-        // $mypath = 'img/excel.png';
-        // $mypath_name = iconv('UTF-8', 'TIS-620', 'รูปตัวอย่าง');
-        $mail->Username = $from; // SMTP username
+        $mail->Host = "58.137.61.220"; // SMTP server
+        $mail->Port = 25; // พอร์ท 25, 465 or 587
+        $mail->Username = $arr['from']; // SMTP username
         $mail->Password = "tpolypassword"; // SMTP password
         //from
         $mail->SetFrom($from, $name);   
         $mail->IsHTML(true);
         //send mail
          if($send == 1){
-            // $mail->addAttachment($mypath, $mypath_name);
-            $mail->AddAddress("phattharachai.sr@thaipolycons.co.th");
             $mail->AddAddress("thanakrit.bh@thaipolycons.co.thh");
             $mail->AddAddress("Thananat.ia@thaipolycons.co.th");
             $mail->AddAddress("rungrueng@thaipolycons.co.th");

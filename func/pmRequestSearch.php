@@ -4,7 +4,9 @@
                 CAST(r.pm_detail as Text) as Detail,
                 r.pm_time as  DateTimes,
                 CAST(r.pm_note as Text) as Note,
+                g.g_id as Group_ID,
                 CAST(g.g_name as Text) as Group_Name,
+                s.site_id as Site_ID,
                 CAST(s.site_name as Text) as Site_Name,
                 r.pm_status as Status,
                 CAST(t.t_time as Text) as Times
