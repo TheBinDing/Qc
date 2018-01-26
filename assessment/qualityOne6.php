@@ -28,7 +28,7 @@
 <body>
     <div class="row">
         <?php
-            require("../Head2.php");
+            require("Head2.php");
         ?>
         <div id="page-wrapper" class="gray-bg">
             <div class="wrapper wrapper-content animated fadeInRight ecommerce">

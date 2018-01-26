@@ -48,14 +48,14 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Request</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <?php if($HeadCheck == 'questQC') { ?>
-                        <li class="active"><a href='qcRequest.php'>QC Receive</a></li>
+                        <li class="active"><a href='../qcRequest.php'>QC Receive</a></li>
                     <?php } else {?>
-                        <li><a href='qcRequest.php'>QC Receive</a></li>
+                        <li><a href='../qcRequest.php'>QC Receive</a></li>
                     <?php } ?>
                     <?php if($HeadCheck == 'questevaluation') { ?>
-                        <li class="active"><a href='evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
+                        <li class="active"><a href='../evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
                     <?php } else {?>
-                        <li><a href='evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
+                        <li><a href='../evaluationForm.php'>แบบประเมินคุณภาพ (In process & End Product)</a></li>
                     <?php } ?>
                 </ul>
 
@@ -67,24 +67,24 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Activity</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <?php if($HeadCheck == 'SiteVS') { ?>
-                        <li class="active"><a href='siteVS.php'>Site Visit</a></li>
+                        <li class="active"><a href='../siteVS.php'>Site Visit</a></li>
                     <?php } else {?>
-                        <li><a href='siteVS.php'>Site Visit</a></li>
+                        <li><a href='../siteVS.php'>Site Visit</a></li>
                     <?php } ?>
                     <?php if($HeadCheck == 'NCR') { ?>
-                        <li class="active"><a href='ncr.php'>NCR</a></li>
+                        <li class="active"><a href='../ncr.php'>NCR</a></li>
                     <?php } else {?>
-                        <li><a href='ncr.php'>NCR</a></li>
+                        <li><a href='../ncr.php'>NCR</a></li>
                     <?php } ?>
                     <?php if($HeadCheck == 'NCRs') { ?>
-                        <li class="active"><a href='ncrComferm.php'>NCR Comferm</a></li>
+                        <li class="active"><a href='../ncrComferm.php'>NCR Comferm</a></li>
                     <?php } else {?>
-                        <li><a href='ncrComferm.php'>NCR Comferm</a></li>
+                        <li><a href='../ncrComferm.php'>NCR Comferm</a></li>
                     <?php } ?>
                     <?php if($HeadCheck == 'assessment') { ?>
-                        <li class="active"><a href='assessment.php'>ประเมินงบประมาณNCR</a></li>
+                        <li class="active"><a href='../assessment.php'>ประเมินงบประมาณNCR</a></li>
                     <?php } else {?>
-                        <li><a href='assessment.php'>ประเมินงบประมาณNCR</a></li>
+                        <li><a href='../assessment.php'>ประเมินงบประมาณNCR</a></li>
                     <?php } ?>
                 </ul>
             <?php } ?>
@@ -99,9 +99,9 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Request</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <?php if($HeadCheck == 'questPM') { ?>
-                        <li class="active"><a href='pmRequest.php'>PM Request</a></li>
+                        <li class="active"><a href='../pmRequest.php'>PM Request</a></li>
                     <?php } else {?>
-                        <li><a href='pmRequest.php'>PM Request</a></li>
+                        <li><a href='../pmRequest.php'>PM Request</a></li>
                     <?php } ?>
                 </ul>
 
@@ -113,14 +113,14 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Activity</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <?php if($HeadCheck == 'SiteVS') { ?>
-                        <li class="active"><a href='siteVS.php'>Site Visit</a></li>
+                        <li class="active"><a href='../siteVS.php'>Site Visit</a></li>
                     <?php } else {?>
-                        <li><a href='siteVS.php'>Site Visit</a></li>
+                        <li><a href='../siteVS.php'>Site Visit</a></li>
                     <?php } ?>
                     <?php if($HeadCheck == 'NCR') { ?>
-                        <li class="active"><a href='ncr.php'>NCR</a></li>
+                        <li class="active"><a href='../ncr.php'>NCR</a></li>
                     <?php } else {?>
-                        <li><a href='ncr.php'>NCR</a></li>
+                        <li><a href='../ncr.php'>NCR</a></li>
                     <?php } ?>
                 </ul>
             <?php } ?>

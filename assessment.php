@@ -68,9 +68,14 @@
                                 <td style="text-align: center;"><?php echo iconv('TIS-620', 'UTF-8', $row['Site_Name']); ?></td>
                                 <td style="text-align: center;"><?php echo iconv('TIS-620', 'UTF-8', $row['User_Name']); ?></td>
                                 <td style="text-align: center;">
-                                    <div <?php if($row['Status'] == 0) { $none = '    pointer-events: none;cursor: not-allowed;box-shadow: none;opacity: 0.65;'; } ?> >
-                                        <a class="btn-ncr btn-white btn btn-xs" style="<?=$none?>" id="Ncr_Re" data-code="<?php echo $row['ID']; ?>" role="button">รายงาน NCR</a>
-                                    </div>
+                                    <?php
+                                        if($row['Status'] == 0) {
+                                            $none = 'pointer-events: none;cursor: not-allowed;box-shadow: none;opacity: 0.65;';
+                                    ?>
+                                        <a class="btn-ncr btn-white btn btn-xs" style="<?=$none?>" id="Ncr_Re" role="button">รายงาน NCR</a>
+                                    <?php } else { ?>
+                                        <a class="btn-ncr btn-white btn btn-xs" id="Ncr_Re" data-code="<?php echo $row['ID']; ?>" role="button">รายงาน NCR</a>
+                                    <?php } ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <div <?php if($row['Status'] == 2) { $none = '    pointer-events: none;cursor: not-allowed;box-shadow: none;opacity: 0.65;'; } ?> >
