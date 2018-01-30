@@ -67,51 +67,75 @@
 
                                     if($row['Group_ID'] == 1) {
                                         $pathName = 'assessment/qualityOne1.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne1Search.php");
                                     }
                                     if($row['Group_ID'] == 2) {
                                         $pathName = 'assessment/qualityOne2.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne2Search.php");
                                     }
                                     if($row['Group_ID'] == 3) {
                                         $pathName = 'assessment/qualityOne3.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne3Search.php");
                                     }
                                     if($row['Group_ID'] == 4) {
                                         $pathName = 'assessment/qualityOne4.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne4Search.php");
                                     }
                                     if($row['Group_ID'] == 5) {
                                         $pathName = 'assessment/qualityOne5.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne5Search.php");
                                     }
                                     if($row['Group_ID'] == 6) {
                                         $pathName = 'assessment/qualityOne6.php?Pm_id='.$row['ID'];
+                                        require("func/selectOne6Search.php");
                                     }
                                     if($row['Group_ID'] == 7) {
                                         $pathName = 'assessment/qualityTwo.php?Pm_id='.$row['ID'];
+                                        require("func/selectTwoSearch.php");
                                     }
                                     if($row['Group_ID'] == 8) {
                                         $pathName = 'assessment/qualityThree.php?Pm_id='.$row['ID'];
+                                        require("func/selectThreeSearch.php");
                                     }
                                     if($row['Group_ID'] == 9) {
                                         $pathName = 'assessment/qualityFour.php?Pm_id='.$row['ID'];
+                                        require("func/selectFourSearch.php");
                                     }
                                     if($row['Group_ID'] == 10) {
                                         $pathName = 'assessment/qualityFive.php?Pm_id='.$row['ID'];
+                                        require("func/selectFiveSearch.php");
                                     }
                                     if($row['Group_ID'] == 11) {
                                         $pathName = 'assessment/qualitySix.php?Pm_id='.$row['ID'];
+                                        require("func/selectSixSearch.php");
                                     }
                                     if($row['Group_ID'] == 12) {
                                         $pathName = 'assessment/house1.php?Pm_id='.$row['ID'];
+                                        require("func/selectHouse1Search.php");
                                     }
                                     if($row['Group_ID'] == 13) {
                                         $pathName = 'assessment/house2.php?Pm_id='.$row['ID'];
+                                        require("func/selectHouse2Search.php");
                                     }
                                     if($row['Group_ID'] == 14) {
                                         $pathName = 'assessment/house3.php?Pm_id='.$row['ID'];
+                                        require("func/selectHouse3Search.php");
                                     }
                                     if($row['Group_ID'] == 15) {
                                         $pathName = 'assessment/house4.php?Pm_id='.$row['ID'];
+                                        require("func/selectHouse4Search.php");
                                     }
                                     if($row['Group_ID'] == 16) {
                                         $pathName = 'assessment/house5.php?Pm_id='.$row['ID'];
+                                        require("func/selectHouse5Search.php");
+                                    }
+
+                                    // echo $sqlCheck.'<br>';
+
+                                    if($sqlCheck == 1) {
+                                        $dis2 = 'disabled';
+                                    } else {
+                                        $dis2 = '';
                                     }
                             ?>
                             <tr>
@@ -125,7 +149,7 @@
                                 </td>
                                 <td style="text-align: center;">
                                     <!-- <a href="func/qcRequestSave.php?Pm_id=<?php echo $row['ID']; ?>" class="btn-white btn btn-xs" role="button">ทำการประเมิน</a> -->
-                                    <a href="<?php echo $pathName; ?>" class="btn-white btn btn-xs" role="button">ทำการประเมิน</a>
+                                    <a href="<?php echo $pathName; ?>" class="btn-white btn btn-xs" role="button" <?=$dis2?>>ทำการประเมิน</a>
                                 </td>
                             </tr>
                             <?php } ?>
