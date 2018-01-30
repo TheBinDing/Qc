@@ -113,13 +113,13 @@
                                     <h4 style="padding-left: 50px;height: 20px;color: black;">2. เหลี่ยม / มุม ไม่สม่ำเสมอ ผิด > 3 mm. </h4>
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass11" name="Ass11" value="<?php echo $row['Ass11'];?>" min="0" max="10" <?php if($row['Ass11'] != ' ' && $row['Ass11'] != ''){ echo 'readonly'; } ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass11" name="Ass11" value="<?php echo $row['Ass11'];?>" min="0" max="10" <?php if($row['Ass11'] != ' ' && $row['Ass11'] != ''){ echo 'readonly'; } ?> onblur="sum1();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass12" name="Ass12" value="<?php echo $row['Ass12'];?>" min="0" max="10" <?php if($row['Ass12'] != ' ' && $row['Ass12'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass12" name="Ass12" value="<?php echo $row['Ass12'];?>" min="0" max="10" <?php if($row['Ass12'] != ' ' && $row['Ass12'] != ''){echo 'readonly';} ?> onblur="sum2();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass13" name="Ass13" value="<?php echo $row['Ass13'];?>" min="0" max="10" <?php if($row['Ass13'] != ' ' && $row['Ass13'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass13" name="Ass13" value="<?php echo $row['Ass13'];?>" min="0" max="10" <?php if($row['Ass13'] != ' ' && $row['Ass13'] != ''){echo 'readonly';} ?> onblur="sum3();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail1" name="Detail1" value="<?php echo iconv('TIS-620','UTF-8', $row['Detail1']);?>" />
@@ -136,13 +136,13 @@
                                     <h4 style="padding-left: 50px;height: 20px;color: black;">3. ไม่เรียบ และไม่สามารถแก้ไขได้ในทันที</h4>
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass21" name="Ass21" value="<?php echo $row['Ass21'];?>" min="0" max="10" <?php if($row['Ass21'] != ' ' && $row['Ass21'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass21" name="Ass21" value="<?php echo $row['Ass21'];?>" min="0" max="10" <?php if($row['Ass21'] != ' ' && $row['Ass21'] != ''){echo 'readonly';} ?> onblur="sum1();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass22" name="Ass22" value="<?php echo $row['Ass22'];?>" min="0" max="10" <?php if($row['Ass22'] != ' ' && $row['Ass22'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass22" name="Ass22" value="<?php echo $row['Ass22'];?>" min="0" max="10" <?php if($row['Ass22'] != ' ' && $row['Ass22'] != ''){echo 'readonly';} ?> onblur="sum2();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass23" name="Ass23" value="<?php echo $row['Ass23'];?>" min="0" max="10" <?php if($row['Ass23'] != ' ' && $row['Ass23'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass23" name="Ass23" value="<?php echo $row['Ass23'];?>" min="0" max="10" <?php if($row['Ass23'] != ' ' && $row['Ass23'] != ''){echo 'readonly';} ?> onblur="sum3();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 80px;">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail2" name="Detail2" value="<?php echo iconv('TIS-620','UTF-8', $row['Detail2']);?>" />
@@ -158,13 +158,13 @@
                                     <h4 style="padding-left: 50px;height: 20px;color: black;">2.  ระดับฝ้าถึงเส้น Off mast คลาดเคลื่อน > 1 ซม.</h4>
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 60px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass31" name="Ass31" value="<?php echo $row['Ass31'];?>" min="0" max="10" <?php if($row['Ass31'] != ' ' && $row['Ass31'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass31" name="Ass31" value="<?php echo $row['Ass31'];?>" min="0" max="10" <?php if($row['Ass31'] != ' ' && $row['Ass31'] != ''){echo 'readonly';} ?> onblur="sum1();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 60px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass32" name="Ass32" value="<?php echo $row['Ass32'];?>" min="0" max="10" <?php if($row['Ass32'] != ' ' && $row['Ass32'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass32" name="Ass32" value="<?php echo $row['Ass32'];?>" min="0" max="10" <?php if($row['Ass32'] != ' ' && $row['Ass32'] != ''){echo 'readonly';} ?> onblur="sum2();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 60px;">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass33" name="Ass33" value="<?php echo $row['Ass33'];?>" min="0" max="10" <?php if($row['Ass33'] != ' ' && $row['Ass33'] != ''){echo 'readonly';} ?> />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Ass33" name="Ass33" value="<?php echo $row['Ass33'];?>" min="0" max="10" <?php if($row['Ass33'] != ' ' && $row['Ass33'] != ''){echo 'readonly';} ?> onblur="sum3();" />
                                 </div>
                                 <div class="col-lg-1" style="padding-top: 60px;">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail3" name="Detail3" value="<?php echo iconv('TIS-620','UTF-8', $row['Detail3']);?>" />
@@ -282,6 +282,93 @@
     var qc = {
         request: new Object()
     };
+
+    function sum1() {
+        if($('#Ass11').val() == '') {
+            a1 = 0;
+            b1 = 0;
+        } else {
+            a1 = $('#Ass11').val();
+            b1 = 1;
+        }
+        if($('#Ass21').val() == '') {
+            a2 = 0;
+            b2 = 0;
+        } else {
+            a2 = $('#Ass21').val();
+            b2 = 1;
+        }
+        if($('#Ass31').val() == '') {
+            a3 = 0;
+            b3 = 0;
+        } else {
+            a3 = $('#Ass31').val();
+            b3 = 1;
+        }
+
+        a = (parseInt(a1) + parseInt(a2) + parseInt(a3));
+        b = (b1+b2+b3);
+
+        $('#Sum1').val((a/b));
+    }
+
+    function sum2() {
+        if($('#Ass12').val() == '') {
+            a1 = 0;
+            b1 = 0;
+        } else {
+            a1 = $('#Ass12').val();
+            b1 = 1;
+        }
+        if($('#Ass22').val() == '') {
+            a2 = 0;
+            b2 = 0;
+        } else {
+            a2 = $('#Ass22').val();
+            b2 = 1;
+        }
+        if($('#Ass32').val() == '') {
+            a3 = 0;
+            b3 = 0;
+        } else {
+            a3 = $('#Ass32').val();
+            b3 = 1;
+        }
+
+        a = (parseInt(a1) + parseInt(a2) + parseInt(a3));
+        b = (b1+b2+b3);
+
+        $('#Sum2').val((a/b));
+    }
+
+    function sum3() {
+        if($('#Ass13').val() == '') {
+            a1 = 0;
+            b1 = 0;
+        } else {
+            a1 = $('#Ass13').val();
+            b1 = 1;
+        }
+        if($('#Ass23').val() == '') {
+            a2 = 0;
+            b2 = 0;
+        } else {
+            a2 = $('#Ass23').val();
+            b2 = 1;
+        }
+        if($('#Ass33').val() == '') {
+            a3 = 0;
+            b3 = 0;
+        } else {
+            a3 = $('#Ass33').val();
+            b3 = 1;
+        }
+
+        a = (parseInt(a1) + parseInt(a2) + parseInt(a3));
+        b = (b1+b2+b3);
+
+        $('#Sum3').val((a/b));
+    }
 </script>
 
 <html>

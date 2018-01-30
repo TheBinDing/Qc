@@ -45,17 +45,17 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <?php
-                                        $site = "SELECT
-                                                    Site_Name
-                                                FROM
-                                                    [QC].[dbo].[Request] r inner join
-                                                    [QC].[dbo].[Site] s on r.site_id = s.site_id
-                                                WHERE
-                                                    pm_id = '". $_GET['Pm_id'] ."' ";
-                                        $qsite = mssql_query($site);
-                                        $row_site = mssql_fetch_assoc($qsite);
+                                        $sql_s = "SELECT
+                                                        CAST(s.Site_Name as Text) as SiteName
+                                                    FROM
+                                                        [QC].[dbo].[Request] q inner join
+                                                        [QC].[dbo].[Site] s on q.site_id = s.site_id
+                                                    WHERE
+                                                        q.pm_id = '". $_GET['Pm_id'] ."' ";
+                                        $query_s = mssql_query($sql_s);
+                                        $row_s = mssql_fetch_assoc($query_s);
                                     ?>
-                                    <input type="text" style="text-align: center;height: 30px;width: 100%;background-color: #ddd;" class="form-control-card" id="Site" name="Site" value="<?php echo iconv('TIS-620','UTF-8', $row_site['Site_Name'])?>" readonly/>
+                                    <input type="text" style="text-align: center;height: 30px;width: 100%;background-color: #ddd;" class="form-control-card" id="Site" name="Site" value="<?php echo iconv('TIS-620','UTF-8', $row_s['SiteName'])?>" readonly/>
                                 </div>
                                 <div class="col-lg-1"></div>
                             </div><br><br>
