@@ -114,7 +114,7 @@
                                     <h4>การแก้ไข Defect QC หมวด 3</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house1" name="house1" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house1" name="house1" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail1" name="Detail1" value="" />
@@ -165,7 +165,7 @@
                                     <h4>พื้นปูกระเบื้องไม่ได้แนวและระดับจำนวนมาก</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house2" name="house2" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house2" name="house2" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail2" name="Detail2" value="" />
@@ -216,7 +216,7 @@
                                     <h4>พื้นไม่ได้แนวและระดับจำนวนมาก</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house3" name="house3" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house3" name="house3" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail3" name="Detail3" value="" />
@@ -267,7 +267,7 @@
                                     <h4>ขนาดและตำแหน่งไม่ถูกต้องหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house4" name="house4" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house4" name="house4" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail4" name="Detail4" value="" />
@@ -318,7 +318,7 @@
                                     <h4>ระดับ,ขนาด,การติดตั้งไม่ถูกต้องหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house5" name="house5" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house5" name="house5" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail5" name="Detail5" value="" />
@@ -369,7 +369,7 @@
                                     <h4>ชนิด,ขนาด,โทนสี,การปูไม้ปาร์เก้ไม่ถูกต้องหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house6" name="house6" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house6" name="house6" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail6" name="Detail6" value="" />
@@ -420,7 +420,7 @@
                                     <h4>ไม่เรียบสม่ำเสมอเป็นคลื่นหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house7" name="house7" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house7" name="house7" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail7" name="Detail7" value="" />
@@ -471,7 +471,7 @@
                                     <h4>ปรับปรุงแก้ไข</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house8" name="house8" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house8" name="house8" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail8" name="Detail8" value="" />
@@ -510,7 +510,7 @@
                                     <h4>ไม่มีแบบติดตั้งอ้างอิงในการตรวจสอบ</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house9" name="house9" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house9" name="house9" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail9" name="Detail9" value="" />
@@ -554,7 +554,7 @@
                                     <h4>ชนิด,ขนาด,ระดับ,และแนวท่อไม่ถูกต้องหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house10" name="house10" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house10" name="house10" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail10" name="Detail10" value="" />
@@ -598,7 +598,7 @@
                                     <h4>ตำแหน่ง,ระดับ,และการติดตั้งถูกต้องหลายจุด</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house11" name="house11" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="house11" name="house11" value="" min="0" max="10" onblur="sum();"  />
                                 </div>
                                 <div class="col-lg-2">
                                     <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Detail11" name="Detail11" value="" />
@@ -611,7 +611,7 @@
                                     <h4>รวมคะแนน (คะแนนผ่านเกณฑ์ =85)</h4>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Total1" name="Total1" value="" min="0" max="10" />
+                                    <input type="number" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="Total" name="Total" value="" />
                                 </div>
                                 <div class="col-lg-3"></div>
                             </div>
@@ -678,6 +678,126 @@
     var qc = {
         request: new Object()
     };
+
+    function sum() {
+        if($('#house1').val() == '') {
+            a1 = 0;
+            b1 = 0;
+        } else {
+            a1 = $('#house1').val();
+            b1 = 1;
+        }
+        if($('#house2').val() == '') {
+            a2 = 0;
+            b2 = 0;
+        } else {
+            a2 = $('#house2').val();
+            b2 = 1;
+        }
+        if($('#house3').val() == '') {
+            a3 = 0;
+            b3 = 0;
+        } else {
+            a3 = $('#house3').val();
+            b3 = 1;
+        }
+        if($('#house4').val() == '') {
+            a4 = 0;
+            b4 = 0;
+        } else {
+            a4 = $('#house4').val();
+            b4 = 1;
+        }
+        if($('#house5').val() == '') {
+            a5 = 0;
+            b5 = 0;
+        } else {
+            a5 = $('#house5').val();
+            b5 = 1;
+        }
+        if($('#house6').val() == '') {
+            a6 = 0;
+            b6 = 0;
+        } else {
+            a6 = $('#house6').val();
+            b6 = 1;
+        }
+        if($('#house7').val() == '') {
+            a7 = 0;
+            b7 = 0;
+        } else {
+            a7 = $('#house7').val();
+            b7 = 1;
+        }
+        if($('#house8').val() == '') {
+            a8 = 0;
+            b8 = 0;
+        } else {
+            a8 = $('#house8').val();
+            b8 = 1;
+        }
+        if($('#house9').val() == '') {
+            a9 = 0;
+            b9 = 0;
+        } else {
+            a9 = $('#house9').val();
+            b9 = 1;
+        }
+        if($('#house10').val() == '') {
+            a10 = 0;
+            b10 = 0;
+        } else {
+            a10 = $('#house10').val();
+            b10 = 1;
+        }
+        if($('#house11').val() == '') {
+            a11 = 0;
+            b11 = 0;
+        } else {
+            a11 = $('#house11').val();
+            b11 = 1;
+        }
+
+        a = (parseInt(a1) + parseInt(a2) + parseInt(a3) + parseInt(a4) + parseInt(a5) + parseInt(a6) + parseInt(a7) + parseInt(a8) + parseInt(a9) + parseInt(a10) + parseInt(a11)) *10;
+        b = (b1+b2+b3+b4+b5+b6+b7+b8+b9+b10+b11);
+
+        c = a/b;
+
+        d = number_format(c, 2, '.', ',');
+
+        $('#Total').val(d);
+    }
+
+    function number_format (number, decimals, dec_point, thousands_sep) {
+        var exponent = "";
+        var numberstr = number.toString ();
+        var eindex = numberstr.indexOf ("e");
+        if (eindex > -1) {
+          exponent = numberstr.substring (eindex);
+          number = parseFloat (numberstr.substring (0, eindex));
+        }
+        if (decimals != null) {
+          var temp = Math.pow (10, decimals);
+          number = Math.round (number * temp) / temp;
+        }
+        var sign = number < 0 ? "-" : "";
+        var integer = (number > 0 ? Math.floor (number) : Math.abs (Math.ceil (number))).toString ();
+        var fractional = number.toString ().substring (integer.length + sign.length);
+        dec_point = dec_point != null ? dec_point : ".";
+        fractional = decimals != null && decimals > 0 || fractional.length > 1 ? (dec_point + fractional.substring (1)) : "";
+        if (decimals != null && decimals > 0) {
+          for (i = fractional.length - 1, z = decimals; i < z; ++i) {
+             fractional += "0";
+          }
+        }
+        thousands_sep = (thousands_sep != dec_point || fractional.length == 0) ? thousands_sep : null;
+        if (thousands_sep != null && thousands_sep != "") {
+          for (i = integer.length - 3; i > 0; i -= 3){
+             integer = integer.substring (0 , i) + thousands_sep + integer.substring (i);
+          }
+        }
+        return sign + integer + fractional + exponent;
+    }
 </script>
 
 <html>

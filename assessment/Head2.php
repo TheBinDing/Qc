@@ -19,7 +19,7 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                 <div class="dropdown profile-element">
                     <span>
                         <!-- <a href="#"> -->
-                            <img alt="image" class="img-circle" src="img/<?php if($pic == ''){ echo 'black_ribbon_top_left.png'; }else{ echo $pic; } ?>" style="width: 50px;height: 50px;" />
+                            <img alt="image" class="img-circle" src="img/<?php if($pic == ''){ echo '../../img/black_ribbon_top_left.png'; }else{ echo $pic; } ?>" style="width: 50px;height: 50px;" />
                         <!-- </a> -->
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -35,7 +35,7 @@ $name = iconv('TIS-620', 'UTF-8', $r_user['Name']);
                     </ul>
                 </div>
                 <div class="logo-element">
-                    <img src="img/<?php if($pic == ''){ echo 'black_ribbon_top_left.png'; }else{ echo $pic; } ?>" style="height: 40px;width: 40px;">
+                    <img src="img/<?php if($pic == ''){ echo '../../img/black_ribbon_top_left.png'; }else{ echo $pic; } ?>" style="height: 40px;width: 40px;">
                 </div>
             </li>
 
