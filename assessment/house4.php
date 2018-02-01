@@ -46,7 +46,8 @@
                                 <div class="col-lg-8">
                                     <?php
                                         $sql_s = "SELECT
-                                                        CAST(s.Site_Name as Text) as SiteName
+                                                        CAST(s.Site_Name as Text) as SiteName,
+                                                        CAST(s.Site_Care as Text) as SiteCare
                                                     FROM
                                                         [QC].[dbo].[Request] q inner join
                                                         [QC].[dbo].[Site] s on q.site_id = s.site_id
@@ -66,7 +67,7 @@
                                         <label class="control-label">ผู้จัดการโครงการ</label>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" style="text-align: center;height: 30px;width: 100%;" class="form-control-card" id="name" name="name"/>
+                                        <input type="text" style="text-align: center;height: 30px;width: 100%;background-color: #ddd;" class="form-control-card" id="name" name="name" value="<?php echo iconv('TIS-620', 'UTF-8', $row_s['SiteCare']); ?>" readonly />
                                     </div>
                                     <div class="col-lg-1"></div>
                                 </div>

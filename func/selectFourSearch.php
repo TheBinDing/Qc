@@ -8,7 +8,7 @@
                     [QC].[dbo].[Request] r on a.pm_id = r.pm_id inner join
                     [QC].[dbo].[Site] s on r.site_id = s.site_id
                 WHERE
-                    a.pm_id = '1' ";
+                    a.pm_id = '". $row['ID'] ."' ";
 
     $query_g = mssql_query($sql_g);
     $num_g = mssql_num_rows($query_g);
