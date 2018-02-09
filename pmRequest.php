@@ -24,6 +24,29 @@
     <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
     <title>บริษัท ไทยโพลีคอนส์ จำกัด (มหาชน)</title>
 </head>
+<style>
+    .showImg {
+        width:50%;
+        height:100px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        background-image: url('img/loader.gif');
+        background-repeat: no-repeat;
+        background-position:center 50%;
+    }
+
+    .shows {
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+        z-index:99;
+        display: none;
+    }
+</style>
 <body>
     <div class="row">
         <?php
@@ -239,6 +262,21 @@
         qc: new Object()
     };
 
+    function popup(value) {
+        if(value == 'loading'){
+            $('#block').css('display','block');
+            $('#loading').fadeIn();
+            $('html').css('overflow','hidden');
+            $('body').css('overflow','hidden');
+        }
+        else if(value == 'close'){
+            $('#block').css('display','none');
+            $('#loading').css('display','none');
+            $('html').css('overflow','auto');
+            $('body').css('overflow','auto');
+        }
+    }
+
     function requestSave() {
         tpoly.qc.Criteria['mode'] = 'request_save';
         tpoly.qc.Criteria['group'] = $('#Group').val();
@@ -328,6 +366,9 @@
                 dataType: "json",
                 type: "POST",
                 data: tpoly.qc.Criteria,
+                beforeSend: function() {
+                    popup('loading');
+                }
             };
 
             var get_ajax = $.ajax(ajax_config);
@@ -356,13 +397,12 @@
 
         var get_ajax = $.ajax(ajax_config);
         get_ajax.done(function(response) {
-            console.log(response);
-            // popup('close');
-            // if(response == 1) {
-            //     swal("Email delivery!");
-            // } else {
-            //     swal("Error!");
-            // }
+            popup('close');
+            if(response == 1) {
+                swal("Email delivery!");
+            } else {
+                swal("Error!");
+            }
         });
     }
 
