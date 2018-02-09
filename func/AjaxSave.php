@@ -17,7 +17,7 @@
         $subject = 'เพิ่มข้อมูลเพื่อเข้าตรวจโครงการ '.$Siten;
         $detail = 'เพิ่มการเข้าตรวจสอบโครงการ : '.$Siten.'<br>';
 		$detail .= 'รายละเอียดงาน : '.$arr['details'].'<br>';
-		$detail .= 'วันที่ตรวจสอบ : '.$arr['check'].'<br>';
+		$detail .= 'วันที่ตรวจสอบ : '.$arr['time'].'<br>';
 		$detail .= 'เวลาที่ตรวจสอบ : '.$arr['times'].'<br>';
         $detail .= 'http://intranet.thaipolycons.co.th:2222/qc/login.php';
 
@@ -57,11 +57,12 @@
             $mail->AddCC("thanakrit.bh@thaipolycons.co.thh");
             $mail->AddCC("Thananat.ia@thaipolycons.co.th");
             $mail->AddCC("rungrueng@thaipolycons.co.th");
+            $mail->AddCC("apichat.si@thaipolycons.co.th");
         } else {
             $mail->AddAddress($arr['send']);
         }
-        $mail->Subject = $subject;  
-        
+        $mail->Subject = $subject;
+
         if(!$mail->send()){
             $msg = $mail->ErrorInfo;
             // $msg = 0;
@@ -305,6 +306,22 @@
             $msg = 1;
         }
         return $msg;
+    }
+
+    function request_save($arr) {
+
+        $Time = new datetime($arr['time']);
+        $Time = $Time->format('Y-m-d');
+
+        $Day = new datetime();
+        $Day = $Day->format('Y-m-d');
+
+        $sql = "INSERT INTO [QC].[dbo].[Request]
+                    (pm_detail, pm_time, pm_note, g_id, site_id, pm_status, u_id, t_id, update_day, create_day)
+                VALUES
+                    ('". $arr['detail'] ."', '". $Time ."', '". $arr['note'] ."', '". $arr['group'] ."', '". $arr['site'] ."', '0', '". $_SESSION['ID'] ."', '". $arr['times'] ."', '". $Day ."', '". $Day ."') ";
+
+        mssql_query($sql);
     }
 
     function js_thai_encode($data) {   // fix all thai elements

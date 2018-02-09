@@ -33,6 +33,9 @@ switch ($mode)
     case 'update_receive' :
         $response = update_receive($arr);
     break;
+    case 'request_save' :
+        $response = request_save($arr);
+    break;
 }
 
 echo json_encode($response);
