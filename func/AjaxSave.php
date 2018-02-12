@@ -21,6 +21,22 @@
 		$detail .= 'เวลาที่ตรวจสอบ : '.$arr['times'].'<br>';
         $detail .= 'http://intranet.thaipolycons.co.th:2222/qc/login.php';
 
+        $from = explode('@', $arr['from']);
+
+        if($from[1] == 'tpcasset.co.th') {
+            $sql_mail = "SELECT
+                            mail_tpoly
+                        FROM
+                            [QC].[dbo].[Mail]
+                        WHERE
+                            mail_asset = '". $arr['from'] ."' ";
+
+            $query_mail = mssql_query($sql_mail);
+            $row_mail = mssql_fetch_assoc($query_mail);
+
+            $arr['from'] = $row_mail['mail_tpoly'];
+        }
+
         $mail = new PHPMailer();
         $mail->Body = $detail;
         $mail->CharSet = "utf-8";
@@ -53,7 +69,6 @@
                 $mail->AddAddress("pantisa.pr@thaipolycons.co.th");
             }
             $mail->addAttachment($mypath, $mypath_name);
-            $mail->AddCC("phattharachai.sr@thaipolycons.co.th");
             $mail->AddCC("thanakrit.bh@thaipolycons.co.thh");
             $mail->AddCC("Thananat.ia@thaipolycons.co.th");
             $mail->AddCC("rungrueng@thaipolycons.co.th");
